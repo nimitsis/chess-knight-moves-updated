@@ -43,13 +43,12 @@ public class PathFinder {
 		
 		if ( piece instanceof Knight) {
 			findKnightPath( ((Knight) piece).getCurrentCell(), targetPosition, currentPath, new ArrayList<>(), remainingMoves);
+		}	
+		if (paths.getPaths().isEmpty()) {
+			System.out.println("No solution found");
 		}
 		
 		return paths;
 	}
-
-//	ChessPiece x = new Knight
-			
-		
 	
 }

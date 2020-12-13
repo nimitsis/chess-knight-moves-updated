@@ -24,7 +24,7 @@ public class PathFinderTest {
 	
 	@Test
 	public void test1 () {
-		ChessPaths paths = PathFinder.findAll(knight, target, 1);
+		ChessPaths paths = PathFinder.findAll(knight, target, 3);
 		System.out.println(paths);
 	}
 	
@@ -36,4 +36,17 @@ public class PathFinderTest {
 		ChessPaths paths = PathFinder.findAll(knight, target, 3);
 		System.out.println(paths);
 	}
+	
+	@Test
+	public void test3 () {
+		start = ChessCell.getChessCell(6, 4);
+		target = ChessCell.getChessCell(5, 3);
+		knight = new Knight(start);
+		ChessPaths paths = PathFinder.findAll(knight, target, 1);
+		if (paths.getPaths().isEmpty() ) {
+			System.out.println("No solution found");
+		}
+		System.out.println(paths);
+	}
+	
 }

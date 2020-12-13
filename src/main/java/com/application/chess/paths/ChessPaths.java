@@ -26,6 +26,6 @@ public class ChessPaths {
 	
 	@Override
 	public String toString() {
-		return String.join(" || ", paths.stream().map(path -> path.toString()).collect(Collectors.toList()));
+		return String.join(" || ", paths.stream().map(ChessPath::toString).collect(Collectors.toList()));
 	}
 }
