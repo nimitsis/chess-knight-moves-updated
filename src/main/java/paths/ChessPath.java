@@ -27,7 +27,7 @@ public class ChessPath {
 	
 	@Override
 	public String toString() {
-		return String.join(", ", cells.stream().map(ChessCell::toString).collect(Collectors.toList()));
+		return String.join(" , ", cells.stream().map(ChessCell::toString).collect(Collectors.toList()));
 	}
 	
 }
