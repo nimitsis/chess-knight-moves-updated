@@ -45,7 +45,7 @@ public class Knight implements ChessPiece {
 	 */
 	
 //	public List<ChessCell> moves(ChessCell currentCell) { // if null the it gets the this.current ChessCell
-	public List<ChessCell> possibleMoves(List<ChessCell> unavailable) {
+	public List<ChessCell> possibleMoves() {
 //		if (currentCell == null) {
 //			currentCell = this.getCurrentCell();
 //		}

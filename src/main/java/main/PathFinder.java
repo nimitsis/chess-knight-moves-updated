@@ -15,22 +15,21 @@ public class PathFinder {
 	
 	private PathFinder() {}
 	
-	private static ChessPaths findKnightPath(ChessPaths currentPaths, ChessCell currentPosition,  ChessCell targetPosition,
-						ChessPath currentPath, List<ChessCell> unavailableCells , int remainingMoves) {
+	private static ChessPaths findKnightPath(ChessPaths visitedPaths, ChessCell currentPosition,  ChessCell targetPosition,
+						ChessPath currentPath, int remainingMoves) {
 		
-		ChessPaths currentPathsClone = currentPaths.getClone();
-		List<ChessPath> chessPathList = currentPathsClone.getPaths();
+		ChessPaths visitedPathsClone = visitedPaths.getClone(); //Cloning list in order to avoid children' s adding paths that do not reach the destination 
+		List<ChessPath> chessPathList = visitedPathsClone.getPaths();
 		
 		ChessPath path = currentPath.getClone();
 		path.addCell(currentPosition);
 		
-		if (! ChessCell.isEqual(currentPosition, targetPosition)) {
+		if (! ChessCell.isEqual(currentPosition, targetPosition)) { // currentPosition != targetPosition
 			if (remainingMoves > 0) {
-				unavailableCells.add(currentPosition);
-				
+				// Check all path according to the remaining possible moves
 				Knight newKnight = new Knight(currentPosition);
-				List<ChessPath> allPaths = newKnight.possibleMoves(unavailableCells).stream().map(currentCell -> {
-					ChessPaths knightPaths = findKnightPath(currentPathsClone, currentCell, targetPosition, path, unavailableCells, remainingMoves-1 );
+				List<ChessPath> allPaths = newKnight.possibleMoves().stream().map(currentCell -> {
+					ChessPaths knightPaths = findKnightPath(visitedPathsClone, currentCell, targetPosition, path, remainingMoves-1 );
 					return knightPaths.getPaths();
 				}).flatMap(List::stream).distinct().collect(Collectors.toList());
 
@@ -38,10 +37,10 @@ public class PathFinder {
 			}
 		}
 		else {
-			chessPathList.add(path);
+			chessPathList.add(path); // adds the path if the currentPosition == targetPosition
 		}
 
-		return new ChessPaths(chessPathList);
+		return new ChessPaths(chessPathList); // Finally all paths that resolve the issue
 	}
 	
 	public static ChessPaths findAll ( ChessPiece piece, ChessCell targetPosition, int remainingMoves ) {
@@ -50,7 +49,7 @@ public class PathFinder {
 		ChessPath currentPath = new ChessPath(new ArrayList<>());
 		
 		if ( piece instanceof Knight) {
-			paths = findKnightPath(paths, ((Knight) piece).getCurrentCell(), targetPosition, currentPath, new ArrayList<>(), remainingMoves);
+			paths = findKnightPath(paths, ((Knight) piece).getCurrentCell(), targetPosition, currentPath, remainingMoves);
 		}
 		if (paths.getPaths().isEmpty()) {
 			System.out.println("No solution found");

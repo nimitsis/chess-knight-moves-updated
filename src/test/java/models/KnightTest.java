@@ -37,12 +37,11 @@ public class KnightTest {
 	@Test
 	public void knightNextStepsTest () {
 		
-		List<ChessCell> unavailableCells = new ArrayList<>();
 		Knight knight = new Knight (currentPosition);
 		System.out.println(" ******** NEXT POSIBLE MOVES ******** : from position: " + currentPosition.toString() + " of color: " + currentPosition.getCellColor());
-		knight.possibleMoves(unavailableCells).stream().forEach( x -> System.out.println(x.toString() + " " + x.getCellColor()));
+		knight.possibleMoves().stream().forEach( x -> System.out.println(x.toString() + " " + x.getCellColor()));
 		
-		assertTrue( knight.possibleMoves(unavailableCells).size() > 1 );
+		assertTrue( knight.possibleMoves().size() > 1 );
 	}
 	
 }
