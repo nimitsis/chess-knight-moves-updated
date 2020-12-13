@@ -13,6 +13,7 @@ public class Main {
 		ChessCell startCell = null;
 		ChessCell endCell = null;
 		int remainingMoves = 3;
+		// Validate input arguments and initialize starting and ending position  
 		try {
 			if (args.length != 2) {
 				throw new IllegalArgumentException("Wrong number of arguments :" + args.length);
@@ -24,20 +25,13 @@ public class Main {
 			return;
 		} 
 		
+		// Initialize the piece
 		ChessPiece piece = new Knight(startCell);
 		ChessPaths solution = PathFinder.findAll(piece, endCell, remainingMoves);
 		
-		printSolutions(solution, startCell, endCell, remainingMoves);
+		// Print problem's solutions, if any
+		Utilities.printSolutions(solution, startCell, endCell, remainingMoves);
 
 	}
-
-	private static void printSolutions(ChessPaths solution, ChessCell start, ChessCell end, int remainingMoves) {
-		System.out.println("All paths so that the Knight from " + start + " to reach the " + end + " at the most " + remainingMoves +" moves");
-		if (solution.getPaths().isEmpty() ) {
-			System.out.println("No solution found");
-		}
-		System.out.println(solution.toString().replace('|', '\n'));
-	}
-
 
 }

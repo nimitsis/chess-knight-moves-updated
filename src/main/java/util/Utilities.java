@@ -2,6 +2,7 @@ package util;
 
 import models.CellLetter;
 import models.ChessCell;
+import paths.ChessPaths;
 
 public class Utilities {
 
@@ -32,4 +33,16 @@ public class Utilities {
 	
 		return ChessCell.getChessCell(xCoord, yCoord);
 	}
+	
+	public static void printSolutions(ChessPaths solution, ChessCell start, ChessCell end, int remainingMoves) {
+		System.out.println("All paths so that the Knight from " + start + " to reach the " + end + " at the most " + remainingMoves +" moves");
+		if (solution.getPaths().isEmpty() ) {
+			System.out.println("No solution found");
+		}
+		System.out.println(solution.toString().replace('|', '\n'));
+		
+		System.out.println("The shortest path is: " + solution.shortestPath() );
+	}
+
+	
 }

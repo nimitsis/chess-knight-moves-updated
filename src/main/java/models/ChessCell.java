@@ -17,9 +17,6 @@ public class ChessCell implements Cell {
 	private boolean visited = false;
 	
 	private ChessCell(int x, int y) {
-//		if (isValidCell(x, y)) {
-//			throw new IllegalArgumentException("(x, y) coordinates of chess cell should be between [1-8]");
-//		}
 		this.x = x;
 		this.y = y;
 		this.cellColor = calcCellColor(x, y);
