@@ -24,6 +24,10 @@ public class ChessPaths {
 		return null;
 	}
 	
+	public ChessPaths getClone() {
+		return new ChessPaths(paths.stream().map(path -> path).collect(Collectors.toList()));
+	}
+	
 	@Override
 	public String toString() {
 		return String.join(" || ", paths.stream().map(ChessPath::toString).collect(Collectors.toList()));

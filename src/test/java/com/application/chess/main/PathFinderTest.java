@@ -42,7 +42,7 @@ public class PathFinderTest {
 		start = ChessCell.getChessCell(6, 4);
 		target = ChessCell.getChessCell(5, 3);
 		knight = new Knight(start);
-		ChessPaths paths = PathFinder.findAll(knight, target, 1);
+		ChessPaths paths = PathFinder.findAll(knight, target, 2);
 		if (paths.getPaths().isEmpty() ) {
 			System.out.println("No solution found");
 		}
