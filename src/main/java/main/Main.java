@@ -1,6 +1,6 @@
-package com.application.chess.main;
+package main;
 
-import com.application.chess.models.ChessCell;
+import models.ChessCell;
 
 public class Main {
 

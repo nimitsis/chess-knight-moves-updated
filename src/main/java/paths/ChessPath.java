@@ -1,9 +1,9 @@
-package com.application.chess.paths;
+package paths;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.application.chess.models.ChessCell;
+import models.ChessCell;
 
 public class ChessPath {
 

@@ -1,14 +1,14 @@
-package com.application.chess.main;
+package main;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.application.chess.models.ChessCell;
-import com.application.chess.models.ChessPiece;
-import com.application.chess.models.Knight;
-import com.application.chess.paths.ChessPath;
-import com.application.chess.paths.ChessPaths;
+import models.ChessCell;
+import models.ChessPiece;
+import models.Knight;
+import paths.ChessPath;
+import paths.ChessPaths;
 
 public class PathFinder {
 	

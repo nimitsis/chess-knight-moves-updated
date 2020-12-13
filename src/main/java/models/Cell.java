@@ -1,4 +1,4 @@
-package com.application.chess.models;
+package models;
 
 public interface Cell {
 

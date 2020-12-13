@@ -1,4 +1,4 @@
-package com.application.chess.models;
+package models;
 
 import java.util.ArrayList;
 import java.util.Arrays;

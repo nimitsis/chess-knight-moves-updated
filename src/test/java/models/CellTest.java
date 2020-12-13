@@ -1,9 +1,12 @@
-package com.application.chess.models;
+package models;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import models.Cell;
+import models.GeneralCell;
 
 public class CellTest {
 

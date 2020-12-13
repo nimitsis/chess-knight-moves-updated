@@ -1,11 +1,12 @@
-package com.application.chess.main;
+package main;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.application.chess.models.ChessCell;
-import com.application.chess.models.Knight;
-import com.application.chess.paths.ChessPaths;
+import main.PathFinder;
+import models.ChessCell;
+import models.Knight;
+import paths.ChessPaths;
 
 public class PathFinderTest {
 
