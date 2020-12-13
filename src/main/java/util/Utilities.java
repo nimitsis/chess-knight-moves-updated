@@ -8,6 +8,11 @@ public class Utilities {
 
 	private Utilities() {}
 	
+	/**
+	 * Evaluates if the inputArgument is valid and if so it converts the input String to a ChessCell 
+	 * @param inputArg
+	 * @return
+	 */
 	public static ChessCell argsToChessCell(String inputArg) {
 		
 		// Checks if the input argument length is correct 
@@ -34,6 +39,13 @@ public class Utilities {
 		return ChessCell.getChessCell(xCoord, yCoord);
 	}
 	
+	/**
+	 * This methods is just to display the results
+	 * @param solution
+	 * @param start
+	 * @param end
+	 * @param remainingMoves
+	 */
 	public static void printSolutions(ChessPaths solution, ChessCell start, ChessCell end, int remainingMoves) {
 		System.out.println("All paths so that the Knight from " + start + " to reach the " + end + " at the most " + remainingMoves +" moves");
 		if (solution.getPaths().isEmpty() ) {
@@ -41,7 +53,7 @@ public class Utilities {
 		}
 		System.out.println(solution.toString().replace('|', '\n'));
 		
-		System.out.println("The shortest path is: " + solution.shortestPath() );
+		System.out.println("A shortest path is: " + solution.shortestPath() );
 	}
 
 	

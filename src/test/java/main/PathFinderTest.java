@@ -1,5 +1,11 @@
 package main;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,6 +19,7 @@ public class PathFinderTest {
 	 Knight knight;
 	 ChessCell start;
 	 ChessCell target;
+	 public static final List<Integer> PATHSIZESPERTESTCASE = new ArrayList<> (Arrays.asList(3 , 6, 2)); 
 	
 	@Before
 	public void steup () {
@@ -27,6 +34,8 @@ public class PathFinderTest {
 	public void test1 () {
 		ChessPaths paths = PathFinder.findAll(knight, target, 3);
 		System.out.println(paths);
+		assertEquals(paths.getPaths().size(), (int)PATHSIZESPERTESTCASE.get(0));
+		
 	}
 	
 	@Test
@@ -36,6 +45,7 @@ public class PathFinderTest {
 		knight = new Knight(start);
 		ChessPaths paths = PathFinder.findAll(knight, target, 3);
 		System.out.println(paths);
+		assertEquals(paths.getPaths().size(), (int)PATHSIZESPERTESTCASE.get(1));
 	}
 	
 	@Test
@@ -48,6 +58,7 @@ public class PathFinderTest {
 			System.out.println("No solution found");
 		}
 		System.out.println(paths);
+		assertEquals(paths.getPaths().size(), (int)PATHSIZESPERTESTCASE.get(2));
 	}
 	
 }

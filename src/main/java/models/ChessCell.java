@@ -14,7 +14,7 @@ public class ChessCell implements Cell {
 	private final int x;
 	private final int y;
 	private CellColor cellColor;
-	private boolean visited = false;
+	private boolean visited = false; //property that keep track  if the cell is already visited
 	
 	private ChessCell(int x, int y) {
 		this.x = x;
@@ -30,6 +30,12 @@ public class ChessCell implements Cell {
 		return this.y;
 	}
 	
+	/**
+	 * Method that calculates the color of a cell
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	private CellColor calcCellColor(int x, int y) {
 		return (x+y) % 2 == 0 ? CellColor.BLACK : CellColor.WHITE; 
 	}
@@ -46,6 +52,9 @@ public class ChessCell implements Cell {
 		this.visited = visited;
 	}
 
+	/**
+	 * This method returns the Chess Cell notation format
+	 */
 	@Override
 	public String toString () {
 		return CellLetter.values()[this.getX() -1 ].toString().concat(String.valueOf(this.getY()));
@@ -61,10 +70,22 @@ public class ChessCell implements Cell {
 		return isValidCell(x, y) ? new ChessCell(x, y) : null;
 	}
 	
+	/**
+	 * Method that checks if a given cell is valid
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public static boolean isValidCell (int x, int y) {
 		return  (x < 1 || x > 8  || y < 1 || y > 8 ) ? false : true; 		
 	}
 	
+	/**
+	 * Method that checks if 2 cells are equal
+	 * @param c1
+	 * @param c2
+	 * @return
+	 */
 	public static boolean isEqual (ChessCell c1, ChessCell c2) {
 		return c1.getX() == c2.getX() && c1.getY() == c2.getY();
 	}

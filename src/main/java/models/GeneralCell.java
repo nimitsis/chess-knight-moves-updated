@@ -1,5 +1,12 @@
 package models;
 
+/**
+ * 
+ * @author nmitsis
+ *
+ * This class is a general implementation for Cell
+ * not oriented to Chess
+ */
 public class GeneralCell implements Cell {
 
 	private final int x;

@@ -17,6 +17,7 @@ public class PathFinder {
 	
 	private static ChessPaths findKnightPath(ChessPaths currentPaths, ChessCell currentPosition,  ChessCell targetPosition,
 						ChessPath currentPath, List<ChessCell> unavailableCells , int remainingMoves) {
+		
 		ChessPaths currentPathsClone = currentPaths.getClone();
 		List<ChessPath> chessPathList = currentPathsClone.getPaths();
 		

@@ -5,8 +5,14 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+/*
+ * This Class represents the Knight Entity
+ * Contains the logic for the possible moves that
+ * a Knight can do from the position that it is.
+ */
 public class Knight implements ChessPiece {
 	
+	// All the possible moves a Knight can do
 	private static final List<GeneralCell> POSSIBLE_POSITIONS = new ArrayList<GeneralCell> (Arrays.asList( 
 			GeneralCell.newGeneralCell(1, 2),
 			GeneralCell.newGeneralCell(2, 1),
@@ -32,6 +38,11 @@ public class Knight implements ChessPiece {
 	public void setCurrentCell(ChessCell currentCell) {
 		this.currentCell = currentCell;
 	}
+	
+	/**
+	 * This method calculates the permitted moves of the Knight 
+	 * against the current position
+	 */
 	
 //	public List<ChessCell> moves(ChessCell currentCell) { // if null the it gets the this.current ChessCell
 	public List<ChessCell> possibleMoves(List<ChessCell> unavailable) {

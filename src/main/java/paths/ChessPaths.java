@@ -1,6 +1,7 @@
 package paths;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,13 +10,7 @@ import java.util.stream.Collectors;
 public class ChessPaths {
 
 	List<ChessPath> paths;
-//	Map<Integer, List<ChessPath>> pathsMap;
-	
-	public ChessPaths() {
-		paths = new ArrayList<ChessPath> ();
-//		pathsMap = new HashMap<> ();
-	}
-	
+
 	public ChessPaths ( List<ChessPath> paths ) {
 		this.paths = paths;
 	}
@@ -28,14 +23,27 @@ public class ChessPaths {
 		this.paths.add(path);
 	}
 	
+	/**
+	 * Finds the shortest path among all paths
+	 * @return
+	 */
 	public ChessPath shortestPath () {
 		// this should return the shortest..
+		Map<Integer, List<ChessPath>> pathsDictionary = new HashMap <> ();
 		for (int i = 0 ; i < paths.size() ; i++) {
-			
+			Integer keySize = (int) paths.get(i).getCells().stream().count();
+			if (!pathsDictionary.containsKey(keySize)) {
+				List<ChessPath> n = new ArrayList<> ();
+				pathsDictionary.put(keySize, n);
+			}
+			pathsDictionary.get(keySize).add(paths.get(i));
 		}
-		System.out.println(paths.get(0).getCells().stream().count());
-		System.out.println(paths.get(1).getCells().stream().count());
-
+		List<Integer> l = new ArrayList<> (pathsDictionary.keySet());
+		Collections.sort(l);
+		int smallestKey = l.get(0);
+		if (smallestKey != 0) {
+			return pathsDictionary.get(smallestKey).get(0);
+		}
 		return null;
 	}
 	
