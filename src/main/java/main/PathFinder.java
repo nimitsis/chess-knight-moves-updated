@@ -24,7 +24,8 @@ public class PathFinder {
 		ChessPath path = currentPath.getClone();
 		path.addCell(currentPosition);
 		
-		if (! ChessCell.isEqual(currentPosition, targetPosition)) { // currentPosition != targetPosition
+		// if (! ChessCell.isEqual(currentPosition, targetPosition)) { // currentPosition != targetPosition
+		if (! currentPosition.equals(targetPosition)) { 	// currentPosition != targetPosition
 			if (remainingMoves > 0) {
 				// Check all path according to the remaining possible moves
 				Knight newKnight = new Knight(currentPosition);

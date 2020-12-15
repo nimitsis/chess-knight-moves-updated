@@ -92,4 +92,23 @@ public class ChessCellTest {
 		cell = ChessCell.getChessCell(blackXCoord, blackYCoord);
 		assertEquals(blackCellLetterCoord, cell.toString());
 	}
+
+	@Test
+	public void checkIsEqual() {
+		ChessCell t1 = ChessCell.getChessCell(4, 4);
+		ChessCell t2 = ChessCell.getChessCell(4, 4);
+		ChessCell t3 = t1;
+		
+		boolean testIsEquals  = ChessCell.isEqual(t1, t2);
+		assertEquals(true, testIsEquals);
+		
+		
+		boolean testEquals = t1.equals(t2);
+//		assertEquals(false, testEquals);	//If equals and hashcode has not been implemented
+		assertEquals(true, testEquals);	//If equals and hashcode has been implemented
+		
+		boolean testEquals2 = t1.equals(t3);
+		assertEquals(true, testEquals2);
+	}
+	
 }

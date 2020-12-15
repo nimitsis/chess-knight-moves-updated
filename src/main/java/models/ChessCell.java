@@ -89,5 +89,22 @@ public class ChessCell implements Cell {
 	public static boolean isEqual (ChessCell c1, ChessCell c2) {
 		return c1.getX() == c2.getX() && c1.getY() == c2.getY();
 	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(x, y);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ChessCell other = (ChessCell) obj;
+		return x == other.x && y == other.y;
+	}
 
 }
