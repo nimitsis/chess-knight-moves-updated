@@ -51,9 +51,6 @@ public class PathFinder {
 		if ( piece instanceof Knight) {
 			paths = findKnightPath(paths, ((Knight) piece).getCurrentCell(), targetPosition, currentPath, remainingMoves);
 		}
-		if (paths.getPaths().isEmpty()) {
-			System.out.println("No solution found");
-		}
 		
 		return paths;
 	}

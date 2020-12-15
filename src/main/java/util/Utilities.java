@@ -2,6 +2,7 @@ package util;
 
 import models.CellLetter;
 import models.ChessCell;
+import paths.ChessPath;
 import paths.ChessPaths;
 
 public class Utilities {
@@ -53,9 +54,22 @@ public class Utilities {
 		}
 		else { 
 			System.out.println(solution.toString().replace('|', '\n'));
-			System.out.println("A shortest path is: " + solution.shortestPath() );
+			System.out.println("A shortest path is: " + shortestPath(solution, remainingMoves));
 		}
 	}
-
+	
+	private static ChessPath shortestPath (ChessPaths availablePaths, int remainingMoves) {
+		
+		int height = remainingMoves+1;
+		ChessPath shortest = null;
+		for (ChessPath p : availablePaths.getPaths()) {
+			if(p.getCells().size() < height ) {
+				shortest = p;
+				height = p.getCells().size();
+			}
+		}
+		return shortest;
+		
+	}
 	
 }
