@@ -51,9 +51,10 @@ public class Utilities {
 		if (solution.getPaths().isEmpty() ) {
 			System.out.println("No solution found");
 		}
-		System.out.println(solution.toString().replace('|', '\n'));
-		
-		System.out.println("A shortest path is: " + solution.shortestPath() );
+		else { 
+			System.out.println(solution.toString().replace('|', '\n'));
+			System.out.println("A shortest path is: " + solution.shortestPath() );
+		}
 	}
 
 	

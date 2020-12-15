@@ -19,7 +19,7 @@ public class PathFinderTest {
 	 Knight knight;
 	 ChessCell start;
 	 ChessCell target;
-	 public static final List<Integer> PATHSIZESPERTESTCASE = new ArrayList<> (Arrays.asList(3 , 6, 2)); 
+	 public static final List<Integer> PATHSIZESPERTESTCASE = new ArrayList<> (Arrays.asList(3 , 6, 2, 0)); 
 	
 	@Before
 	public void steup () {
@@ -59,6 +59,19 @@ public class PathFinderTest {
 		}
 		System.out.println(paths);
 		assertEquals(paths.getPaths().size(), (int)PATHSIZESPERTESTCASE.get(2));
+	}
+
+	@Test
+	public void test4 () {
+		start = ChessCell.getChessCell(1, 1);
+		target = ChessCell.getChessCell(2, 2);
+		knight = new Knight(start);
+		ChessPaths paths = PathFinder.findAll(knight, target, 2);
+		if (paths.getPaths().isEmpty() ) {
+			System.out.println("No solution found");
+		}
+		System.out.println(paths);
+		assertEquals(paths.getPaths().size(), (int)PATHSIZESPERTESTCASE.get(3));
 	}
 	
 }
