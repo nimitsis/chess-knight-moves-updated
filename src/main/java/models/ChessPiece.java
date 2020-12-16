@@ -1,8 +1,9 @@
 package models;
 
-import java.util.List;
+import java.util.Collection;
+// import java.util.List 	;
 
 public interface ChessPiece {
 
-	public List<ChessCell> possibleMoves();
+	public Collection<ChessCell> possibleMoves();
 }
