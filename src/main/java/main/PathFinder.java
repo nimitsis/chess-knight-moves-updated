@@ -22,7 +22,7 @@ public class PathFinder {
 		ChessPaths visitedPathsClone = new ChessPaths(visitedPaths.getPaths());
 		List<ChessPath> chessPathList = visitedPathsClone.getPaths();
 		
-		// ChessPath path = currentPath.getClone();	//a clone of the current path that is exetazetai.
+		// ChessPath path = currentPath.getClone();	//an den to clonopoihsw tote bazei ola ta current positions sto solution
 		ChessPath path = new ChessPath(currentPath.getCells());
 
 		// path.addCell(currentPosition);

@@ -29,7 +29,7 @@ public class ChessPath {
 	// public ChessPath getClone() {
 	// 	return new ChessPath(cells.stream().map(cell -> cell).collect(Collectors.toList()));
 
-//		return new ChessPath(cells)// George suggestion
+//		return new ChessPath(new ArrayList<> (cells));
 
 	// }
 	

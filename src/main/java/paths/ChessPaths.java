@@ -25,9 +25,9 @@ public class ChessPaths {
 	// }
 
 	// public ChessPaths getClone() {
-	// 	return new ChessPaths(paths.stream().map(path -> path).collect(Collectors.toList()));
+	// 	return new ChessPaths(paths.stream().map(path -> path).collect(Collectors.toList()));		//ftiaxnw mia nea list me ta elements to paths 
 
-	//		return new ChessPaths(paths)
+	//		return new ChessPath(new ArrayList<> (cells)); // Goerge suggestion
 
 	// }
 	
