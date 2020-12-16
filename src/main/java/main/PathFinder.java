@@ -21,8 +21,11 @@ public class PathFinder {
 		ChessPaths visitedPathsClone = visitedPaths.getClone(); //Cloning list in order to avoid children' s adding paths that do not reach the destination 
 		List<ChessPath> chessPathList = visitedPathsClone.getPaths();
 		
-		ChessPath path = currentPath.getClone();
-		path.addCell(currentPosition);
+		// ChessPath path = currentPath.getClone();
+		ChessPath path = new ChessPath(currentPath.getCells());
+
+		// path.addCell(currentPosition);
+		path.getCells().add(currentPosition);
 		
 		// if (! ChessCell.isEqual(currentPosition, targetPosition)) { // currentPosition != targetPosition
 		if (! currentPosition.equals(targetPosition)) { 	// currentPosition != targetPosition

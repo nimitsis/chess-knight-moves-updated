@@ -78,7 +78,7 @@ public class Utilities {
 	
 	private static ChessPath shortestPath (ChessPaths availablePaths, int remainingMoves) {
 		
-		int height = remainingMoves+1;
+		int height = remainingMoves+2;
 		ChessPath shortest = null;
 		for (ChessPath p : availablePaths.getPaths()) {
 			if(p.getCells().size() < height ) {
