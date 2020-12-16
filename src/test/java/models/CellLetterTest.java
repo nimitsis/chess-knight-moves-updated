@@ -18,7 +18,7 @@ public class CellLetterTest {
 	
 	@Test
 	public void testLeterF () {
-		CellLetter testF = CellLetter.valueOf(f);
+		CellLetter testF = CellLetter.valueOf(f); 
 		assertEquals(f, testF.toString());
 	}
 	
