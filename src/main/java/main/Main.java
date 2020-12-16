@@ -27,7 +27,9 @@ public class Main {
 		
 		// Initialize the piece
 		ChessPiece piece = new Knight(startCell);
-		ChessPaths solution = PathFinder.findAll(piece, endCell, remainingMoves);
+		// ChessPaths solution = PathFinder.findAll(piece, endCell, remainingMoves);
+		// Or someone may use the static implementation of the algorythm
+		ChessPaths solution = PathFinderWithStaticChessPaths.findAll(piece, endCell, remainingMoves);
 		
 		// Print problem's solutions, if any
 		Utilities.printSolutions(solution, startCell, endCell, remainingMoves);
