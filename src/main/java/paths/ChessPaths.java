@@ -26,6 +26,9 @@ public class ChessPaths {
 
 	// public ChessPaths getClone() {
 	// 	return new ChessPaths(paths.stream().map(path -> path).collect(Collectors.toList()));
+
+	//		return new ChessPaths(paths)
+
 	// }
 	
 	@Override
