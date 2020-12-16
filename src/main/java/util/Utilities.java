@@ -86,6 +86,7 @@ public class Utilities {
 				height = p.getCells().size();
 			}
 		}
+
 		return shortest;
 		
 	}

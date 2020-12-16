@@ -22,11 +22,11 @@ public class PathFinder {
 		ChessPaths visitedPathsClone = new ChessPaths(visitedPaths.getPaths());
 		List<ChessPath> chessPathList = visitedPathsClone.getPaths();
 		
-		// ChessPath path = currentPath.getClone();
+		// ChessPath path = currentPath.getClone();	//a clone of the current path that is exetazetai.
 		ChessPath path = new ChessPath(currentPath.getCells());
 
 		// path.addCell(currentPosition);
-		path.getCells().add(currentPosition);
+		path.getCells().add(currentPosition); //A1 -> B3: 1h klhsh add(A1), 2h add(B3)
 		
 		// if (! ChessCell.isEqual(currentPosition, targetPosition)) { // currentPosition != targetPosition
 		if (! currentPosition.equals(targetPosition)) { 	// currentPosition != targetPosition
@@ -36,16 +36,16 @@ public class PathFinder {
 				List<ChessPath> allPaths = newKnight.possibleMoves().stream().map(currentCell -> {
 					ChessPaths knightPaths = findKnightPath(visitedPathsClone, currentCell, targetPosition, path, remainingMoves-1 );
 					return knightPaths.getPaths();
-				}).flatMap(List::stream).distinct().collect(Collectors.toList());
+				}).flatMap(List::stream).distinct().collect(Collectors.toList()); // epistrefei mia lista apo olla ta 
 
-				chessPathList.addAll(allPaths);
+				chessPathList.addAll(allPaths); // exoume exetasei es bathos ola ta paths bathous 3 enos enos  stouxeiou bathos 2 A1, C2, D4 , epestrepse oti soloutions exeis brei an exeis brei 
 			}
 		}
 		else {
 			chessPathList.add(path); // adds the path if the currentPosition == targetPosition
 		}
 
-		return new ChessPaths(chessPathList); // Finally all paths that resolve the issue
+		return new ChessPaths(chessPathList); // epistrefoume ola ta paths pou dinoun solution sto panw epipedo
 	}
 	
 	public static ChessPaths findAll ( ChessPiece piece, ChessCell targetPosition, int remainingMoves ) {
