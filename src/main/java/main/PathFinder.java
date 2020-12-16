@@ -18,7 +18,8 @@ public class PathFinder {
 	private static ChessPaths findKnightPath(ChessPaths visitedPaths, ChessCell currentPosition,  ChessCell targetPosition,
 						ChessPath currentPath, int remainingMoves) {
 		
-		ChessPaths visitedPathsClone = visitedPaths.getClone(); //Cloning list in order to avoid children' s adding paths that do not reach the destination 
+		// ChessPaths visitedPathsClone = visitedPaths.getClone(); //Cloning list in order to avoid children' s adding paths that do not reach the destination 
+		ChessPaths visitedPathsClone = new ChessPaths(visitedPaths.getPaths());
 		List<ChessPath> chessPathList = visitedPathsClone.getPaths();
 		
 		// ChessPath path = currentPath.getClone();
