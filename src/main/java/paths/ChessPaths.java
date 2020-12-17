@@ -12,25 +12,13 @@ public class ChessPaths {
 	List<ChessPath> paths;
 
 	public ChessPaths ( List<ChessPath> paths ) {
-		// this.paths = paths;
 		this.paths = new ArrayList<>(paths);
 	}
 		
 	public List<ChessPath> getPaths() {
 		return this.paths;
 	}
-	
-	// public void addPath(ChessPath path) {
-	// 	this.paths.add(path);
-	// }
 
-	// public ChessPaths getClone() {
-	// 	return new ChessPaths(paths.stream().map(path -> path).collect(Collectors.toList()));		//ftiaxnw mia nea list me ta elements to paths 
-
-	//		return new ChessPath(new ArrayList<> (cells)); // Goerge suggestion
-
-	// }
-	
 	@Override
 	public String toString() {
 		return String.join("|", paths.stream().map(ChessPath::toString).collect(Collectors.toList()));

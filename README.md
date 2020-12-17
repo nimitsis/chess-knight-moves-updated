@@ -1,5 +1,24 @@
 # knight-moves
 
+## Updates 
+
+* Update the findAll and findPath (old findKnightPath) in order to be more generic and be able to find paths for other kind of pieces:
+
+    * Pass as argument the starting position instead of Knight Piece
+    * Initialize a Piece instead of Knight with Polymorphism. 
+ 
+* Simplify the ChessPaths and ChessPath classes:
+
+    * Remove getClone, and make proper use of ChessPaths/ ChessPath constructor in order to instantiate an new List<ChessPath>/ List<ChessCell
+    * Remove addPath(), addPaths() methods and add element direct to the lists, by calling getCells() and getPaths()  
+
+* remove public from the interfaces methods
+* Update returned type of possibleMoves method in ChessPiece interface 
+* Update the Utility argsToChessCell method in order to check the ChessLetter Enum instead of the ASCII codes
+* Override the equals and hashcode in ChessCell and use equals instead of isEquals.
+* Move shortestPath from ChessPaths to Utilities, make it static, and correct it 
+* Resolve the print out issue.
+
 ## Program Execution
 
 ### From command line:

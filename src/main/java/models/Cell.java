@@ -7,7 +7,7 @@ package models;
 
 public interface Cell {
 
-		public int getX();
-		public int getY();
+		int getX();
+		int getY();
 
 }

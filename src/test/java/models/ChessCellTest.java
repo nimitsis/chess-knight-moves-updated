@@ -50,16 +50,13 @@ public class ChessCellTest {
 		assertTrue("Y coordination is:" + yCoord, cell.getY() == yCoord);
 	}
 	
-//	@Test ( expected = IllegalArgumentException.class)
 	@Test
 	public void testXCoordException () {
 		xCoord = wrongCoord;
 		cell = ChessCell.getChessCell(xCoord, yCoord);
-//		assertTrue("X coordination is: " + xCoord, cell.getX() == xCoord);
 		assertTrue("X coordination is: " + xCoord, cell == null);
 	}
 	
-//	@Test ( expected = IllegalArgumentException.class)
 	@Test
 	public void testYCoordException () {
 		yCoord = wrongCoord;

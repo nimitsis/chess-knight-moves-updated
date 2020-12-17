@@ -23,16 +23,13 @@ public class PathFinderTest {
 	
 	@Before
 	public void steup () {
-	
 		start = ChessCell.getChessCell(1, 1);
 		target = ChessCell.getChessCell(2, 3);
-		knight = new Knight(start);
-		
 	}
 	
 	@Test
 	public void testFromA1toB3 () {
-		ChessPaths paths = PathFinder.findAll(knight, target, 3);
+		ChessPaths paths = PathFinder.findAll(start, target, 3);
 		System.out.println(paths);
 		assertEquals(paths.getPaths().size(), (int)PATHSIZESPERTESTCASE.get(0));
 		
@@ -42,8 +39,7 @@ public class PathFinderTest {
 	public void testFromF4ToE8 () {
 		start = ChessCell.getChessCell(6, 4);
 		target = ChessCell.getChessCell(5, 8);
-		knight = new Knight(start);
-		ChessPaths paths = PathFinder.findAll(knight, target, 3);
+		ChessPaths paths = PathFinder.findAll(start, target, 3);
 		System.out.println(paths);
 		assertEquals(paths.getPaths().size(), (int)PATHSIZESPERTESTCASE.get(1));
 	}
@@ -52,8 +48,7 @@ public class PathFinderTest {
 	public void testFromF4ToE3 () {
 		start = ChessCell.getChessCell(6, 4);
 		target = ChessCell.getChessCell(5, 3);
-		knight = new Knight(start);
-		ChessPaths paths = PathFinder.findAll(knight, target, 3);
+		ChessPaths paths = PathFinder.findAll(start, target, 3);
 		if (paths.getPaths().isEmpty() ) {
 			System.out.println("No solution found");
 		}
@@ -65,8 +60,7 @@ public class PathFinderTest {
 	public void testFromA1toB2 () {
 		start = ChessCell.getChessCell(1, 1);
 		target = ChessCell.getChessCell(2, 2);
-		knight = new Knight(start);
-		ChessPaths paths = PathFinder.findAll(knight, target, 3);
+		ChessPaths paths = PathFinder.findAll(start, target, 3);
 		if (paths.getPaths().isEmpty() ) {
 			System.out.println("No solution found");
 		}
@@ -78,8 +72,7 @@ public class PathFinderTest {
 	public void testFromC3ToF5 () {
 		start = ChessCell.getChessCell(3, 3);
 		target = ChessCell.getChessCell(6, 5);
-		knight = new Knight(start);
-		ChessPaths paths = PathFinder.findAll(knight, target, 3);
+		ChessPaths paths = PathFinder.findAll(start, target, 3);
 		if (paths.getPaths().isEmpty() ) {
 			System.out.println("No solution found");
 		}

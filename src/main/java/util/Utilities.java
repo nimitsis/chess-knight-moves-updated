@@ -30,30 +30,12 @@ public class Utilities {
 			throw new IllegalArgumentException("Wrong argument "+ inputArg);
 		}
 
-		// int chessChar = (int) xCoordStr.charAt(0);
-		// if (chessChar < 65 || chessChar > 72) {
-		// 	throw new IllegalArgumentException("Wrong argument "+ inputArg);
-		// }
-		// int xCoord = CellLetter.valueOf(xCoordStr).ordinal() + 1;
-		
-		// Checks if the input argument has a valid number as u Coord
 		String yCoordStr = String.valueOf(inputArg.toUpperCase().charAt(1));
-		int yCoord;
-		try {
-			yCoord = Integer.parseInt(yCoordStr);
-			if (yCoord <1 || yCoord > 8) {
-				throw new IllegalArgumentException("Wrong argument "+ inputArg); 
-			}
-		} catch (IllegalArgumentException e) {
-			throw e;
-		}
-		
-
-		// int yInt = yCoordStr.charAt(0);
-		// if ( yInt < 49 || yInt > 56 ) {
-		// 	throw new IllegalArgumentException("Wrong argument "+ inputArg);
-		// }
-		// int yCoord = Integer.parseInt(yCoordStr);
+		 int yInt = yCoordStr.charAt(0);
+		 if ( yInt < 49 || yInt > 56 ) {
+		 	throw new IllegalArgumentException("Wrong argument "+ inputArg);
+		 }
+		 int yCoord = Integer.parseInt(yCoordStr);
 	
 		return ChessCell.getChessCell(xCoord, yCoord);
 	}

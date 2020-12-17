@@ -13,19 +13,16 @@ public class PathFinderWithStaticChessPaths {
 	
 	private PathFinderWithStaticChessPaths() {}
 	
-	private static void findKnightPath(ChessCell currentPosition,  ChessCell targetPosition, ChessPath currentPath, int remainingMoves) {
+	private static void findPath(ChessCell currentPosition,  ChessCell targetPosition, ChessPath currentPath, int remainingMoves) {
         
         ChessPath path = new ChessPath(currentPath.getCells());
-        // ChessPath path = currentPath.getClone();
         path.getCells().add(currentPosition);
-		// path.addCell(currentPosition);
 		
 		if (! ChessCell.isEqual(currentPosition, targetPosition)) {
-			if (remainingMoves > 0) {
-				
-				Knight newKnight = new Knight(currentPosition);
-				newKnight.possibleMoves().forEach(currentCell -> {
-					findKnightPath(currentCell, targetPosition, path, remainingMoves-1 );
+			if (remainingMoves > 0) {	
+				ChessPiece piece = new Knight(currentPosition);
+				piece.possibleMoves().forEach(currentCell -> {
+					findPath(currentCell, targetPosition, path, remainingMoves-1 );
 				});	
 			}
 		}
@@ -35,17 +32,11 @@ public class PathFinderWithStaticChessPaths {
 		
 	}
 	
-	public static ChessPaths findAll ( ChessPiece piece, ChessCell targetPosition, int remainingMoves ) {
+	public static ChessPaths findAll ( ChessCell startCell, ChessCell targetPosition, int remainingMoves ) {
 		
 		paths = new ChessPaths(new ArrayList<>());
 		ChessPath currentPath = new ChessPath(new ArrayList<>());
-		
-		if ( piece instanceof Knight) {
-			findKnightPath(((Knight) piece).getCurrentCell(), targetPosition, currentPath, remainingMoves);
-		}
-		if (paths.getPaths().isEmpty()) {
-			System.out.println("No solution found");
-		}
+		findPath(startCell, targetPosition, currentPath, remainingMoves);
 		
 		return paths;
 	}    

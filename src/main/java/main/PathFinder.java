@@ -12,51 +12,41 @@ import paths.ChessPaths;
 
 public class PathFinder {
 	
-	
 	private PathFinder() {}
 	
-	private static ChessPaths findKnightPath(ChessPaths visitedPaths, ChessCell currentPosition,  ChessCell targetPosition,
+	private static ChessPaths findPath(ChessPaths visitedPaths, ChessCell currentPosition,  ChessCell targetPosition,
 						ChessPath currentPath, int remainingMoves) {
 		
-		// ChessPaths visitedPathsClone = visitedPaths.getClone(); //Cloning list in order to avoid children' s adding paths that do not reach the destination 
-		ChessPaths visitedPathsClone = new ChessPaths(visitedPaths.getPaths());
-		List<ChessPath> chessPathList = visitedPathsClone.getPaths();
-		
-		// ChessPath path = currentPath.getClone();	//an den to clonopoihsw tote bazei ola ta current positions sto solution
+		ChessPaths newPaths = new ChessPaths(visitedPaths.getPaths());
+		List<ChessPath> chessPathList = newPaths.getPaths();		
 		ChessPath path = new ChessPath(currentPath.getCells());
-
-		// path.addCell(currentPosition);
-		path.getCells().add(currentPosition); //A1 -> B3: 1h klhsh add(A1), 2h add(B3)
+		path.getCells().add(currentPosition); 
 		
-		// if (! ChessCell.isEqual(currentPosition, targetPosition)) { // currentPosition != targetPosition
-		if (! currentPosition.equals(targetPosition)) { 	// currentPosition != targetPosition
+		if (! currentPosition.equals(targetPosition)) { 	
 			if (remainingMoves > 0) {
-				// Check all path according to the remaining possible moves
-				Knight newKnight = new Knight(currentPosition);
-				List<ChessPath> allPaths = newKnight.possibleMoves().stream().map(currentCell -> {
-					ChessPaths knightPaths = findKnightPath(visitedPathsClone, currentCell, targetPosition, path, remainingMoves-1 );
-					return knightPaths.getPaths();
-				}).flatMap(List::stream).distinct().collect(Collectors.toList()); // epistrefei mia lista apo olla ta 
 
-				chessPathList.addAll(allPaths); // exoume exetasei es bathos ola ta paths bathous 3 enos enos  stouxeiou bathos 2 A1, C2, D4 , epestrepse oti soloutions exeis brei an exeis brei 
+				// Check all path according to the remaining possible moves
+				ChessPiece piece = new Knight(currentPosition);
+				List<ChessPath> allPaths = piece.possibleMoves().stream().map(currentCell -> {
+					ChessPaths knightPaths = findPath(newPaths, currentCell, targetPosition, path, remainingMoves-1 );
+					return knightPaths.getPaths();
+				}).flatMap(List::stream).distinct().collect(Collectors.toList()); 
+
+				chessPathList.addAll(allPaths); 
 			}
 		}
 		else {
-			chessPathList.add(path); // adds the path if the currentPosition == targetPosition
+			chessPathList.add(path); 
 		}
 
-		return new ChessPaths(chessPathList); // epistrefoume ola ta paths pou dinoun solution sto panw epipedo
+		return new ChessPaths(chessPathList);
 	}
 	
-	public static ChessPaths findAll ( ChessPiece piece, ChessCell targetPosition, int remainingMoves ) {
+	public static ChessPaths findAll ( ChessCell startCell, ChessCell targetPosition, int remainingMoves ) {
 		
 		ChessPaths paths = new ChessPaths(new ArrayList<>());
 		ChessPath currentPath = new ChessPath(new ArrayList<>());
-		
-		if ( piece instanceof Knight) {
-			paths = findKnightPath(paths, ((Knight) piece).getCurrentCell(), targetPosition, currentPath, remainingMoves);
-		}
-		
+		paths = findPath(paths, startCell, targetPosition, currentPath, remainingMoves);
 		return paths;
 	}
 	

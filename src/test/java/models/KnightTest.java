@@ -30,7 +30,6 @@ public class KnightTest {
 		index = randomGenerator.nextInt(CORRECTCOORDS.size());
 		yCoord = CORRECTCOORDS.get(index);
 		currentPosition = ChessCell.getChessCell(xCoord, yCoord);
-//		System.out.println(currentPosition.toString());
 		
 	}
 	
