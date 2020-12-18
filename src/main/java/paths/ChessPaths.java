@@ -23,4 +23,18 @@ public class ChessPaths {
 	public String toString() {
 		return String.join("|", paths.stream().map(ChessPath::toString).collect(Collectors.toList()));
 	}
+	
+	public static ChessPath shortestPath (ChessPaths availablePaths, int remainingMoves) {
+		
+		int height = remainingMoves+2;
+		ChessPath shortest = null;
+		for (ChessPath p : availablePaths.getPaths()) {
+			if(p.getCells().size() < height ) {
+				shortest = p;
+				height = p.getCells().size();
+			}
+		}
+		return shortest;
+	}
+	
 }
